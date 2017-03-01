@@ -1,0 +1,39 @@
+{
+  "questions" : [{
+    "question": "Question 1 leçon 6 ?",
+    "reponses": [
+      "réponse 1 Q1 L6",
+      "réponse 2 L6",
+      "réponse 3 L6",
+      "réponse 4 L6"
+    ],
+    "vrai": 1
+  },       {
+    "question": "Question 2 leçon 6 ?",
+    "reponses": [
+      "réponse 1 Q2 L6",
+      "réponse 2 Q2 L6",
+      "réponse 3 Q2 L6",
+      "réponse 4 Q2 L6"
+    ],
+    "vrai": 2
+  },{
+    "question": "Question 3 leçon 6 ?",
+    "reponses": [
+      "réponse 1 Q3 L6",
+      "réponse 2 Q3 L6",
+      "réponse 3 Q3 L6",
+      "réponse 4 Q3 L6"
+    ],
+    "vrai": 3
+  },{
+    "question": "Question 4 leçon 6 ?",
+    "reponses": [
+      "réponse 1 Q4 L6",
+      "réponse 2 Q4 L6",
+      "réponse 3 Q4 L6",
+      "réponse 4 Q4 L6"
+    ],
+    "vrai": 0
+  }]
+}

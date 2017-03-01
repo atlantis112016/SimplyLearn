@@ -1,0 +1,15 @@
+<ion-view title="Liste des cours déjà effectués">
+    <ion-content overflow-scroll="false" class="myapp-home">
+        <div class="hero no-header flat">
+            <div class="content">
+                <h2>Les cours déjà effectués:</h2>
+                    <div class="list">
+                        <a ng-href="#/cours/{{ cour.id }}" class="item" ng-repeat="cour in Cours | filter: monFilterBy">
+                           Leçon n°{{ cour.id }} : {{ cour.titre }}
+                        </a>
+                    </div>
+                <h4>{{ infoSiVide }}</h4>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

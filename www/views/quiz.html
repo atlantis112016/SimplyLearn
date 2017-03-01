@@ -1,0 +1,26 @@
+<ion-view title="Quizz" cache-view="false">
+    <ion-content overflow-scroll="false" class="myapp-home">
+        <div class="hero no-header flat">
+            <div class="content-quiz">
+              <h1>Quiz {{ idCours }}!</h1>
+                <h2>Etape {{ etape }}/{{ totalQuestions }}</h2>
+                    <form name="myForm" novalidate>
+                        <div class="list card">
+                            <div class="item item-text-wrap">{{question}} </div>
+                            <div class="item item-body">
+                                <div class="list">
+                                    <ion-radio ng-class="{ red: red[$index], green: green[$index] }" ng-click="choix($index)" ng-disabled="disabled" ng-repeat="reponse in reponses">{{reponse}}</ion-radio>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="padding">
+                            <button ng-show="bouton" ng-click="suivant()" class="button button-dark button-block icon-right" ng-class="iconeBouton">{{ texteBouton }}</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

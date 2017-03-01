@@ -1,0 +1,255 @@
+/* Empty. Add your own CSS if you like */
+.chat-item.ng-enter {
+    -webkit-animation: fadeInLeft 1s;
+    animation: fadeInLeft 1s;
+}
+.chat-item.ng-enter-stagger {
+    -webkit-animation-delay:200ms;
+    animation-delay:200ms;
+
+    /* override to make sure it's not inherited from other styles */
+    -webkit-animation-duration:0;
+    animation-duration:0;
+}
+
+
+/* General
+==================================*/
+.myapp-home {
+    background-image: url('../img/fond4.jpg');
+    background-size: 100% 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: #11C1F3;
+    text-shadow: 0 1px 0px #000;
+    font-size: 42px;
+}
+
+h2 {
+    color: #11C1F3;
+    text-shadow: 0 1px 0px #000;
+    font-size: 32px;
+}
+
+h3 {
+    color: #11C1F3;
+    text-shadow: 0 1px 0px #000;
+    font-size: 20px;
+}
+
+h4 {
+    color: #FF0000;
+    text-shadow: 0 1px 0px #000;
+    font-size: 15px;
+}
+/* Utilities
+==================================*/
+.title-bordered {
+    border-top: solid 2px #bbb;
+    padding-top: 30px;
+}
+
+p {
+    color: #555;
+    margin: 0 0 25px;
+}
+
+.scroll {
+    height: 100%;
+}
+
+
+/* Login
+==================================*/
+.app-icon {
+    background-color: #fff;
+    background: url('../img/crown.jpg') center;
+    background-size: cover;
+    border-radius: 50%;
+    height: 125px;
+    margin: 0 auto;
+    width: 125px;
+}
+
+.social-login {
+    position: fixed;
+    bottom: 0;
+}
+
+
+.content {
+     margin-top: 10%;
+     margin-right: 10%;
+     margin-left: 10%;
+     padding : 10px 10px 10px 10px;
+     background: rgba(122, 130, 136, 0.2);
+     background-color: #fff;
+     width: auto;
+     align-content: center;
+     opacity: 0.95;
+     filter: alpha(opacity=95); /* For IE8 and earlier */
+     border-radius: 10px 10px 10px 10px;
+ }
+.content-quiz {
+    margin-top: 3%;
+    margin-right: 10%;
+    margin-left: 10%;
+    padding : 10px 10px 10px 10px;
+    background: rgba(122, 130, 136, 0.2);
+    background-color: #fff;
+    width: auto;
+    align-content: center;
+    opacity: 0.95;
+    filter: alpha(opacity=95); /* For IE8 and earlier */
+    border-radius: 10px 10px 10px 10px;
+}
+
+/* style page cours.html */
+.lecon-content {
+    margin-top: 10%;
+    height: 100%;
+    width: 100%;
+}
+ .lecon-iframe {
+    height: 32%;
+    width: 100%; 
+ }
+
+ .lecon-button {
+    margin-top: 10%;
+ }
+
+ /* style page exercice.html */
+     .scroll-content {
+        background-color: brown;
+    }
+    .red {
+        color: red;
+    }
+    .green {
+        color: green;
+    }
+    .item {
+        background-color: #F8F8F8;
+    }
+    .item-radio .item-content {
+        background-color: #F8F8F8;
+    }
+    .overflow-scroll {
+        overflow-y: auto;
+    }
+
+    /** Pour la bulle du professeur dans contact **/
+    @import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+    /* Demo purposes only */
+
+.snip1566 {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+  max-width: 190px;
+  width: 100%;
+  color: #bbb;
+  font-size: 16px;
+  box-shadow: none !important;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.snip1566 *,
+.snip1566:before,
+.snip1566:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.snip1566:before,
+.snip1566:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: -1;
+  border: 2px solid #bbb;
+  border-color: transparent #bbb;
+}
+
+.snip1566 img {
+  max-width: 100%;
+  backface-visibility: hidden;
+  vertical-align: top;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.snip1566 figcaption {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 50%;
+}
+
+.snip1566 i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  z-index: 1;
+}
+
+.snip1566 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.snip1566:hover figcaption,
+.snip1566.hover figcaption {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.snip1566:hover:before,
+.snip1566.hover:before,
+.snip1566:hover:after,
+.snip1566.hover:after {
+  border-width: 10px;
+}
+
+.snip1566:hover:before,
+.snip1566.hover:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.snip1566:hover:after,
+.snip1566.hover:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+

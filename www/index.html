@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!--<script src="lib/ngstorage/ngStorage.min.js"></script> -->
+    <script src="cordova.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+    <script src="js/controllers/controller.module.js"></script>
+    <script src="js/controllers/home.js"></script>
+    <script src="js/controllers/cours.js"></script>
+    <script src="js/controllers/listecours.js"></script>
+    <script src="js/controllers/quiz.js"></script>
+    <script src="js/controllers/rdv.js"></script>
+    <script src="js/controllers/contact.js"></script>
+    <script src="js/controllers/score.js"></script>
+    <script src="js/services/services.js"></script>
+    <script src="js/controllers/contact.js"></script>
+
+
+  </head>
+
+  <body ng-app="simplelearn">
+
+    <ion-nav-bar class="bar-calm">
+      <!--<ion-nav-buttons side="left">
+        <button class="button button-icon button-calm ion-navicon" menu-toggle="right">
+        </button>
+      </ion-nav-buttons>-->
+
+      <ion-nav-back-button class="button-clear">
+        <i class="ion-arrow-left-c"></i> Back
+      </ion-nav-back-button>
+
+    </ion-nav-bar>
+
+ <!--   <div class="bar bar-header bar-calm">
+      <button class="button button-icon icon ion-navicon"></button>
+      <div class="h1 title">Home</div>
+      <button class="button button-clear button-calm">Edit</button>
+    </div>-->
+  
+
+
+  <ion-nav-view></ion-nav-view>
+  
+  <div class="tabs-icon-top tabs-color-calm">
+    <div class="tabs">
+      <a class="tab-item active" ui-sref="home">
+        <i class="icon ion-ios-home"></i>
+        Home
+      </a>
+      <!--<a class="tab-item active" ui-sref="cours({idCours: nAleat})">
+        <i class="icon ion-ios-book"></i>
+        Cours
+      </a>-->
+      <a class="tab-item active" ui-sref="listecours">
+        <i class="icon ion-ios-albums"></i>
+        Liste Cours
+      </a>
+      <a class="tab-item active" ui-sref="rdv">
+        <i class="icon ion-clock"></i>
+        Vos RDV
+      </a>
+      <a class="tab-item active" ui-sref="contact">
+        <i class="icon ion-email"></i>
+        Votre Professeur
+      </a>
+    </div>
+  </div>
+
+  </body>
+</html>

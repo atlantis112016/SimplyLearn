@@ -1,0 +1,18 @@
+<ion-view title="Home">
+    <ion-content overflow-scroll="false" class="myapp-home">
+        <div class="hero no-header flat">
+            <div class="padding">
+                <button ng-click="reset()" class="button button-large button-calm ink">Reset</button>
+            </div>
+
+            <div class="content">
+              <h1>Bienvenue!</h1>
+              <h2>Apprendre les langues n'aura jamais été aussi facile!</h2>
+            </div>
+        </div>
+
+        <div class="padding">
+            <button ui-sref="cours({idCours: nAleat})" class="button button-large button-calm ink">Leçon du jour {{ nAleat }}</button>
+        </div>
+    </ion-content>
+</ion-view>

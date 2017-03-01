@@ -1,0 +1,36 @@
+{
+  "questions" : [{
+    "question": "Que signifie Sofa dans la leçon ?",
+    "reponses": [
+      "une chaise",
+      "un canapé",
+      "une étagère",
+      "un chien"
+    ],
+    "vrai": 1
+  },       {
+    "question": "Complétez: you must be ....after your journey! :",
+    "reponses": [
+      "pillow",
+      "happy",
+      "tired"
+    ],
+    "vrai": 2
+  },{
+    "question": "Comment dit-on : 2 tasses de thé ?",
+    "reponses": [
+      "one cup of coffee",
+      "two cups of tea",
+      "one beer"
+    ],
+    "vrai": 1
+  },{
+    "question": "Comment dit-on: des bagages lourds ?",
+    "reponses": [
+      "heavy bags",
+      "hearthstone deck",
+      "health bags"
+    ],
+    "vrai": 0
+  }]
+}

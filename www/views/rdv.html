@@ -1,0 +1,20 @@
+<ion-view title="Dates de vos prochaines leçons">
+  <ion-content overflow-scroll="false" class="myapp-home">
+        <div class="hero no-header flat">
+            <div class="content">
+           	  <h2>Vos prochaines sessions sont :</h2>
+				<!--<div class="lecon-button">
+					<button ui-sref="pushNotif" class="button button-large button-calm ink">Notification</button>
+					<button class="button button-large button-calm ink" ng-click="add()">Ajouter une notification</button>
+				</div>-->
+				<ion-list class="list-inset">
+   					<ion-item ng-repeat="x in rdvs">
+				 <!-- <li ng-repeat="x in rdvs"> <i class="icon ion-ios-alarm"></i>-->
+						<i class="icon ion-calendar"></i> {{ x.daterdv + ' à ' + x.heurerdv }}
+				  </ion-item>
+				</ion-list>
+			</div>
+		</div>
+
+  </ion-content>
+</ion-view>

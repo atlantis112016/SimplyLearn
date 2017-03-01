@@ -1,0 +1,21 @@
+<ion-view title="la leçon du jour">
+    <ion-content overflow-scroll="false" class="myapp-home">
+			<div class="lecon-content">
+				<iframe class="lecon-iframe" src="{{ coursItems.href }}" frameborder="0"></iframe>
+					<div class="hero no-header flat">
+						<div class="content">
+							<h3>Leçon {{ coursItems.id }} : {{ coursItems.titre }}</h3>
+						</div>
+					</div>
+				<!-- si le $scope doublon = true, le bouton quiz n'apparait pas, un message d'information apparait -->
+				<div data-ng-switch="doublon">
+					<div class="content" data-ng-switch-when="true"><h4><strong>Oupss!</strong> Vous avez déjà répondu à ce quiz<br> mais vous pouvez revoir la vidéo!</h4></div>
+					<div class="lecon-button" data-ng-switch-default>
+						<button ui-sref="quiz({ idCours: coursItems.id })" class="button button-large button-calm ink">Quiz</button>
+					</div>
+				</div>
+
+			</div>
+
+    </ion-content>
+</ion-view>
