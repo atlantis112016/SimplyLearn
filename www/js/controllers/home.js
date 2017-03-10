@@ -47,7 +47,7 @@ angular.module('simplelearn.controllers')
                         //Si date système est inférieur à date listeRDV - 1 heure
                         if (dateNow < datej) {
                             var _10SecondsFromNow = new Date($scope.timestamp - 1000 * 3600);
-                            alert(_10SecondsFromNow);
+                            //alert(_10SecondsFromNow);
                             $cordovaLocalNotification.add({
                                 id: 1,
                                 at: _10SecondsFromNow,

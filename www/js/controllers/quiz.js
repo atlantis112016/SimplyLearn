@@ -40,8 +40,7 @@ angular.module('simplelearn.controllers')
                         Array.prototype.push.apply(listeQuest, $rootScope.questions);
                     }
 
-                 //   console.log("liste question = ", listeQuest)
-                    //on met la taille du tableau dans le scope, pour comparer avec les step
+                   //on met la taille du tableau dans le scope, pour comparer avec les step
                     $scope.totalQuestions = listeQuest.length;
 
                     $scope.choix = function (index) {
@@ -80,7 +79,7 @@ angular.module('simplelearn.controllers')
                     };
                     //charge le questionnaire et récupère individuellement chaque question avec ses réponses
                     var getQuestion = function () {
-                        // var item = Quiz.getQuestion(step);
+
                         var item = listeQuest[step];
                         $scope.bouton = false;
                         $scope.disabled = false;
