@@ -7,6 +7,7 @@ angular.module('simplelearn.controllers')
         //récupération de l'id du cours
         $scope.idCours = $stateParams.idCours;
 
+        //fonction permettant de savoir si la leçon a déjà été enregistré dans le localstorage
         var doublonTest = function (numTest) {
             if ($scope.stockageLocal.length > 0) {
                 for (var i = 0; i < StorageService.length(); i++) {
@@ -17,7 +18,7 @@ angular.module('simplelearn.controllers')
             }
         }
         //Permet d'afficher le bouton quiz ou un message à la place dans cours.html
-
+        //on test si le cours a déjà été vu.
         if ($scope.stockageLocal.length > 0) {
             $scope.doublon = doublonTest($scope.idCours);
             console.log($scope.doublon);

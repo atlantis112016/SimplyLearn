@@ -27,9 +27,13 @@ angular.module('simplelearn.controllers')
 
         // Crée un Object listCours
         $scope.rdvs = {};
-
+        $scope.daterdv = {};
         // Initialise le modèle avec une chaîne vide
         $scope.rdvs = '';
+        $scope.daterdv ='';
+        //var dateSyst = JSON.stringify(new Date().toLocaleString());
+        //var dateSystFormat = dateSyst.substring(1,11);
+
         // Récupération de la liste du fichier Json
         // pour le passer au scope
         $scope.$on('$ionicView.enter', function(){
@@ -39,6 +43,7 @@ angular.module('simplelearn.controllers')
             listeRDV.getRdv().then(function(response){
                 //Renvoie les RDVS
                 $scope.rdvs = response.data.rdvs;
+
             }).catch(function(response){
                 console.log(response);
             }).finally(function(){

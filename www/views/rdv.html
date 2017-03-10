@@ -10,7 +10,7 @@
 				<ion-list class="list-inset">
    					<ion-item ng-repeat="x in rdvs">
 				 <!-- <li ng-repeat="x in rdvs"> <i class="icon ion-ios-alarm"></i>-->
-						<i class="icon ion-calendar"></i> {{ x.daterdv + ' à ' + x.heurerdv }}
+						<i class="icon ion-calendar"></i> {{ x.timeStamp | date : "dd/MM/yyyy à HH:mm"  }}
 				  </ion-item>
 				</ion-list>
 			</div>

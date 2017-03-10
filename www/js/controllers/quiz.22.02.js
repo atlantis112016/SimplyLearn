@@ -1,3 +1,44 @@
+// Crée un Object listCours
+var rdvs = {};
+var daterdv = {};
+// Initialise le modèle avec une chaîne vide
+rdvs = '';
+daterdv ='';
+var dateSyst = JSON.stringify(new Date().toLocaleString());
+var dateSystFormat = dateSyst.substring(1,11);
+var dateAlarm ='';
+console.log('dateSystFormat = ', dateSystFormat);
+listeRDV.getRdv().then(function(response){
+    //Renvoie les RDVS
+    rdvs = response.data.rdvs;
+    //boucle pour passer les rdvs et comparer avec la date système
+    for (var i = 0; i < rdvs.length; i++) {
+        daterdv = rdvs[i].daterdv;
+        var heurerdv = rdvs[i].heurerdv;
+        if (daterdv == dateSystFormat) {
+            //console.log (' heurerdv = ', heurerdv);
+            //alarmTime = new Date((new Date) - 1000*3600);
+
+            dateAlarm = toDate(heurerdv, "h:m");
+            //console.log('dateAlarm = ', dateAlarm);
+
+            function toDate(dStr, format) {
+                var now = new Date();
+                if (format == "h:m") {
+                    //Enlève une heure par rapport à l'heure du RDV du fichier JSON
+                    now.setHours(dStr.substr(0, dStr.indexOf(":")));
+                    now.setMinutes(dStr.substr(dStr.indexOf(":") + 1));
+                    now.setSeconds(0);
+                    return now;
+                } else
+                    return "Invalid Format";
+            }
+        }
+    }
+})
+
+
+
 angular.module('simplelearn.controllers')
 
     .controller('quizCtrl', function($scope, $stateParams, $state, StorageService, QuizAleat, Quiz, resultats, $ionicLoading) {

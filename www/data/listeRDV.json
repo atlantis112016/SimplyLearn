@@ -1,15 +1,13 @@
 {
   "rdvs" : [{
-    "daterdv": "25/01/2017",
-    "heurerdv": "16:00"
+    "timeStamp": "1489079760000"
   },{
-    "daterdv": "26/01/2017",
-    "heurerdv": "16:00"
+    "timeStamp": "1489135620000"
   },{
-    "daterdv": "27/01/2017",
-    "heurerdv": "16:00"
+    "timeStamp": "1489145400000"
   },{
-    "daterdv": "28/01/2017",
-    "heurerdv": "16:00"
+    "timeStamp": "1490193935000"
+  },{
+    "timeStamp": "1489150920000"
   }]
 }
