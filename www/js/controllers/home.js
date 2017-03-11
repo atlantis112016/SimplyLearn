@@ -44,12 +44,15 @@ angular.module('simplelearn.controllers')
                         //on enlève une heure aux données timestamp du fichier JSON
                         var datej = ($scope.timestamp - 1000 * 3600);
 
+                        //Permet d'incrementer id $cordovaLocalNotification
+                        var id = 1 + i
+                        
                         //Si date système est inférieur à date listeRDV - 1 heure
                         if (dateNow < datej) {
                             var _10SecondsFromNow = new Date($scope.timestamp - 1000 * 3600);
                             //alert(_10SecondsFromNow);
                             $cordovaLocalNotification.add({
-                                id: 1,
+                                id: id,
                                 at: _10SecondsFromNow,
                                 title: 'Rappel de cours',
                                 text: 'Votre leçon est dans 1 heure'
