@@ -1,38 +1,18 @@
 angular.module('simplelearn.controllers')
 
     .controller('rdvCtrl', function ($scope, $ionicLoading, listeRDV) {
-       /* $scope.add = function() {
-            // Récupération de la liste du fichier Json
-            // pour le passer au scope
-            $http.get("data/listeRDV.json")
-                .success(function(data) {
-                    //Renvoie les RDVS
-                    $scope.rdvs = data.rdvs;
-
-                })
-            var alarmTime = new Date();
-            alarmTime.setMinutes(alarmTime.getMinutes() + 1);
-            $cordovaLocalNotification.add({
-                id: "1234",
-                date: alarmTime,
-                message: "Votre prochaine leçon est dans une heure",
-                title: "Rappel de leçon",
-                autoCancel: true,
-                sound: null
-            }).then(function (add) {
-                console.log("Cette notification a bien été paramétrée");
-                alert("Notification 1234 ajoutée: " + add);
-            });
-        };*/
-
-        // Crée un Object listCours
+        // Crée les Objets de la listeRDV
         $scope.rdvs = {};
-        $scope.daterdv = {};
-        // Initialise le modèle avec une chaîne vide
+        $scope.nDate = {};
+
+        // Initialise les modèles avec une chaîne vide
         $scope.rdvs = '';
-        $scope.daterdv ='';
-        //var dateSyst = JSON.stringify(new Date().toLocaleString());
-        //var dateSystFormat = dateSyst.substring(1,11);
+        $scope.nDate = '';
+
+        //Récupère la date sytème en timestamp
+        var dateNow = Date.now();
+        //pour filtrer dans la vue les dates qui seront sup à la date du jour
+        $scope.nDate = dateNow;
 
         // Récupération de la liste du fichier Json
         // pour le passer au scope
@@ -41,8 +21,14 @@ angular.module('simplelearn.controllers')
             // Récupération de la liste du fichier Json
             // pour le passer au scope
             listeRDV.getRdv().then(function(response){
+
                 //Renvoie les RDVS
                 $scope.rdvs = response.data.rdvs;
+
+                //Si il n'y a pas de RDV
+                if ($scope.rdvs.length == 0){
+                    $scope.infoSiVide = "Vous n'avez pas encore de RDV";
+                }
 
             }).catch(function(response){
                 console.log(response);

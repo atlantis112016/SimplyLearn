@@ -18,11 +18,14 @@ angular.module('simplelearn.controllers')
             // Récupération de la liste du fichier Json
             // pour le passer au scope
             Cours.getCours().then(function(response){
+                //filtre personnalisé pour mettre par ordre croissant
                 var filterBy =  $scope.elements;
                 $scope.monFilterBy = function(e) {
                     return filterBy.indexOf(e.id) !== -1;
                 }
                 $scope.Cours = response.data.coursItems;
+
+                //si le local storage est vide, message pour dire à l'utilisateur qu'il n'a pas encore suivi de leçons
                         if (StorageService.length() == 0){
                             $scope.infoSiVide = "Vous n'avez pas encore suivi de cours";
                         }

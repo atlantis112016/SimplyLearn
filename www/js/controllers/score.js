@@ -17,12 +17,10 @@ angular.module('simplelearn.controllers')
                 }
             }
         }
-       /* si il n'y a pas de doublon entre le numéro de cours et ceux stockés dans le local storage alors on l'ajoute
+       /* si il n'y a pas de doublon entre le numéro de cours et ceux stockés dans le local storage alors on ajoute
          au local storage le nouveau numéro de cour*/
         if (doublonTest(newThing) !== true) {
             StorageService.add(newThing);
         }
-        console.log('$rootScope = ',$rootScope.questions, 'storageService = ', $scope.elements);
-       //console.log("idCours = " + newThing + "Contenu tableau = " + $scope.elements);
 
     })

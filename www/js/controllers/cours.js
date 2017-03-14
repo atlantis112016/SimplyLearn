@@ -21,15 +21,11 @@ angular.module('simplelearn.controllers')
         //on test si le cours a déjà été vu.
         if ($scope.stockageLocal.length > 0) {
             $scope.doublon = doublonTest($scope.idCours);
-            console.log($scope.doublon);
         } else {
             $scope.doublon = "false";
         }
         // Crée un Object listCours
         $scope.coursItems = {};
-
-        // Récupération de la liste du fichier Json
-        // pour le passer au scope
 
         $scope.$on('$ionicView.enter', function(){
             $ionicLoading.show();

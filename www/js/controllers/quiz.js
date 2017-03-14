@@ -1,9 +1,8 @@
 angular.module('simplelearn.controllers')
 
-    .controller('quizCtrl', function(StorageService, $scope, $rootScope, $stateParams, $state, numAleaQuiz, Quiz, resultats, $ionicLoading) {
+    .controller('quizCtrl', function($rootScope, StorageService, $ionicLoading, $scope, $stateParams, $state, numAleaQuiz, Quiz, resultats) {
         var listeQuest = [];
         var liste1 = [];
-        var liste2 =[];
         $scope.question = '';
         $scope.reponses = {};
         $scope.vrai = 0;
@@ -17,28 +16,27 @@ angular.module('simplelearn.controllers')
         resultats.resetFaux();
         var step = 0;
 
- //       $scope.$on('$ionicView.beforeEnter', function(){
-        //récupération de l'idCour
+
+        //récupération de l'idCour pour faire correspondre le questionnaire
             $scope.idCours = $stateParams.idCours;
+
             $scope.$on('$ionicView.enter', function() {
                 $ionicLoading.show();
                 // Récupération du quiz du fichier Json par rapport à l'idCour
                 // pour le passer au scope
                 Quiz.getQuiz().then(function () {
-                    //Boucle pour ajouter les questions/réponses à listeQuest
+                    //Boucle pour ajouter les questions/réponses à liste1
                     for (var i = 0; i < Quiz.getMax(); i++) {
-                        //   listeQuest.push(Quiz.getQuestion(i));
                         liste1.push(Quiz.getQuestion(i));
-
                     }
 
                     //on ajoute la liste1 des questions/réponses au tableau listeQuest
                     Array.prototype.push.apply(listeQuest, liste1);
-                    //on ajoute la liste2 des questions/réponses au tableau listeQuest si il n'est pas vide
-                    //Ce sont les questions Aléatoire
-                    if ($rootScope.questions.length !== 0) {
+                    //si le $rootscope n'est pas vide ça ajoute, les questions déjà stockées dedans à listeQuest
+                    //pour alimenter le questionnaire des questions des anciens cours.
+                   if ($rootScope.questions.length !== 0) {
                         Array.prototype.push.apply(listeQuest, $rootScope.questions);
-                    }
+                   }
 
                    //on met la taille du tableau dans le scope, pour comparer avec les step
                     $scope.totalQuestions = listeQuest.length;
@@ -57,16 +55,17 @@ angular.module('simplelearn.controllers')
                             resultats.incrementeFaux();
                         }
 
-                        //Si on arrive à la fin di questionnaire on renvoi vers la page score
-                        //if(Quiz.getMax() == step) {
+                        //Si on arrive à la fin du questionnaire on renvoi vers la page score et on tire une question
+                        //aléatoire pour l'ajouter au $rootscope
+                        //puis on va sur la page score
+
                         if (listeQuest.length == step) {
-                            liste2.push(listeQuest[numAleaQuiz.getNaleatQuiz()]);
                             $rootScope.questions.push(listeQuest[numAleaQuiz.getNaleatQuiz()]);
                             $state.go("score", {idCours: $scope.idCours});
                         }
                     };
 
-                    //Bouton suivant pour avancer dans les questions
+                    //Bouton Question suivante pour avancer dans les questions
                     $scope.suivant = function () {
                         if (step == -1) {
                             step = 0;

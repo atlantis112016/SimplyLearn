@@ -7,7 +7,7 @@
 							<h3>Leçon {{ coursItems.id }} : {{ coursItems.titre }}</h3>
 						</div>
 					</div>
-				<!-- si le $scope doublon = true, le bouton quiz n'apparait pas, un message d'information apparait -->
+				<!-- si $scope.doublon = true, le bouton quiz n'apparait pas, un message d'information remplace le bouton -->
 				<div data-ng-switch="doublon">
 					<div class="content" data-ng-switch-when="true"><h4><strong>Oupss!</strong> Vous avez déjà répondu à ce quiz<br> mais vous pouvez revoir la vidéo!</h4></div>
 					<div class="lecon-button" data-ng-switch-default>

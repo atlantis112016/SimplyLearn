@@ -60,9 +60,7 @@ angular.module('simplelearn.services', ['ngStorage'])
            // on charge la liste des cours à partir du fichier Json
            $http.get(quizSource)
                .success(function (data) {
-                   //console.log(quizSource);
                    listeQuestions = data.questions; // for UI
-                   //console.log("listes questions = " + JSON.stringify(listeQuestions)); // for browser console
                })
                .error(function (data) {
                    console.log('Echec du chargement du fichier');
@@ -76,7 +74,6 @@ angular.module('simplelearn.services', ['ngStorage'])
             },
             getQuestion: function (index) {
                 loadQuiz();
-                //console.log(listeQuestions[index]);
                 return listeQuestions[index];
             },
             getMax: function () {
@@ -148,31 +145,7 @@ angular.module('simplelearn.services', ['ngStorage'])
         };
 
 })
-    //Savoir si la leçon a déjà était suivie
-.service('doublon', function (StorageService, $stateParams) {
-    var numTest = "";
-    var idLecon = $stateParams.idCours;
-    var elementsStorage = [];
-    elementsStorage = StorageService.getAll();
-    //console.log(newThing)
-    function testDoublon(numTest) {
-        if (StorageService.length() > 0) {
 
-            for (var i = 0; i < StorageService.length(); i++) {
-
-                if (elementsStorage[i] == numTest) {
-                    return true;
-                }
-            }
-        }
-    }
-        return {
-            getDoublon: function () {
-                return testDoublon(idLecon);
-
-            }
-        }
-})
 
 
 

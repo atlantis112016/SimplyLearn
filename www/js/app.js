@@ -6,7 +6,7 @@
 angular.module('simplelearn', ['ionic','simplelearn.controllers', 'simplelearn.services', 'ngCordova', 'ngStorage'])
 
 
-    .run(function($ionicPlatform, $rootScope, $timeout, $cordovaLocalNotification) {
+    .run(function($ionicPlatform, $rootScope) {
       $ionicPlatform.ready(function() {
           if (window.cordova && window.cordova.plugins.Keyboard) {
               // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -22,82 +22,8 @@ angular.module('simplelearn', ['ionic','simplelearn.controllers', 'simplelearn.s
               StatusBar.styleDefault();
           }
 
-          window.plugin.notification.local.onadd = function (id, state, json) {
-              var notification = {
-                  id: id,
-                  state: state,
-                  json: json
-              };
-              $timeout(function() {
-                  $rootScope.$broadcast("$cordovaLocalNotification:added", notification);
-              });
-          };
           //initialise l'objet pour le stockage des questions des autres quiz
           $rootScope.questions = [];
-
-         /* $localStorage = $localStorage.$default({
-              dateAlarmsFinal: []
-          });
-          function toDate(dStr, format) {
-              var theDate = new Date();
-              if (format == "h:m") {
-                  //Enlève une heure par rapport à l'heure du RDV du fichier JSON
-                  theDate.setHours(dStr.substr(0, dStr.indexOf(":")));
-                  theDate.setMinutes(dStr.substr(dStr.indexOf(":") + 1));
-                  theDate.setSeconds(0);
-                  return theDate;
-              } else
-                  return "Invalid Format";
-          }
-// Crée un Object listCours
-          var rdvs = {};
-          var daterdv = {};
-// Initialise le modèle avec une chaîne vide
-          rdvs = '';
-          daterdv ='';
-          var dateSyst = JSON.stringify(new Date().toLocaleString());
-          var dateSystFormat = dateSyst.substring(1,11);
-          var dateAlarm ='';
-
-          listeRDV.getRdv().then(function(response){
-              //Renvoie les RDVS
-              rdvs = response.data.rdvs;
-              //boucle pour passer les rdvs et comparer avec la date système
-              for (var i = 0; i < rdvs.length; i++) {
-                  daterdv = rdvs[i].daterdv;
-                  var heurerdv = rdvs[i].heurerdv;
-                  if (daterdv == dateSystFormat) {
-                      console.log (' heurerdv = ', heurerdv);
-                      //alarmTime = new Date((new Date) - 1000*3600);
-                      //Date rdv - 1 heure
-                      dateAlarm = new Date((toDate(heurerdv, "h:m")));
-
-                      var test = new Date((dateAlarm) - 2000 * 3600);
-                      $localStorage.dateAlarmsFinal = Date.parse(test);
-                      console.log('toDate(heurerdv, "h:m")',toDate(heurerdv, "h:m"), 'test', test.toLocaleString());
-                  }
-              }
-          })
-          var toto = $localStorage.dateAlarmsFinal;
-         var alarmTime2 = toto;
-         //alarmTime2.setHours(alarmTime2.getHours() + 1);*/
-
-        /**  var now = new Date().getTime();
-          var _10SecondsFromNow = new Date(now + 10 * 1000);
-          var alarmTime = new Date();
-          alarmTime.setMinutes(alarmTime.getMinutes() + 1);
-          console.log('alarmTime', alarmTime);
-          console.log('alarmTime2', new Date(new Date(alarmTime2).getTime() + 1000 * 3600));
-         $cordovaLocalNotification.add({
-              id: 1,
-              //date: '08/03/2017 15:45',
-              title: 'Rappel de cours',
-              text: 'Votre leçon est dans 1 heure',
-              at: _10SecondsFromNow,
-              autocancel: true
-          }).then(function () {
-              console.log("Notification ajoutée: " + add);
-          });**/
       })
 
     })
@@ -143,11 +69,6 @@ angular.module('simplelearn', ['ionic','simplelearn.controllers', 'simplelearn.s
                   templateUrl: 'views/rdv.html',
                   controller: 'rdvCtrl'
            })
-            .state('pushNotif', {
-                url: '/pushNotif',
-                templateUrl: 'views/pushNotif.html',
-                controller: 'pushNotifCtrl'
-            })
            .state('score', {
                   cache: false,
                   url: '/score/:idCours',
