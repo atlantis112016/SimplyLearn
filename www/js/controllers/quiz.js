@@ -15,6 +15,7 @@ angular.module('simplelearn.controllers')
         resultats.resetVrai();
         resultats.resetFaux();
         var step = 0;
+        var o = [0, 1, 2, 3];
 
 
         //récupération de l'idCour pour faire correspondre le questionnaire
@@ -60,8 +61,15 @@ angular.module('simplelearn.controllers')
                         //puis on va sur la page score
 
                         if (listeQuest.length == step) {
+                            //permet d'avoir un num aléatoire pour tirer une question
+                                
+                                function shuffle(o){
+                                    for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+                                    return o;
+                                }
+      
                             $scope.bouton = false;
-                            $rootScope.questions.push(listeQuest[2]);
+                            $rootScope.questions.push(listeQuest[shuffle(o)[0]]);
                             $state.go("score", {idCours: $scope.idCours});
                         }
                     };
