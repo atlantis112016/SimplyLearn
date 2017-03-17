@@ -13,20 +13,6 @@ angular.module('simplelearn.services', ['ngStorage'])
                 }
             }
     })
-    // Génération d'un numéro aléatoire pour la question du quiz des leçons précédentes à récupérer
-    .service('numAleaQuiz', function(){
-        var o = [1, 2, 3, 4];
-        function shuffle(o){
-            for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-            return o;
-        }
-
-        return {
-            getNaleatQuiz:function(){
-                return shuffle(o)[0];
-            }
-        }
-    })
 
     //Récupère la liste des cours
     .factory('Cours', function ($http) {

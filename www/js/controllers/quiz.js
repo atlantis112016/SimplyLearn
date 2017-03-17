@@ -1,6 +1,6 @@
 angular.module('simplelearn.controllers')
 
-    .controller('quizCtrl', function($rootScope, StorageService, $ionicLoading, $scope, $stateParams, $state, numAleaQuiz, Quiz, resultats) {
+    .controller('quizCtrl', function($rootScope, StorageService, $ionicLoading, $scope, $stateParams, $state, Quiz, resultats) {
         var listeQuest = [];
         var liste1 = [];
         $scope.question = '';
@@ -60,7 +60,8 @@ angular.module('simplelearn.controllers')
                         //puis on va sur la page score
 
                         if (listeQuest.length == step) {
-                            $rootScope.questions.push(listeQuest[numAleaQuiz.getNaleatQuiz()]);
+                            $scope.bouton = false;
+                            $rootScope.questions.push(listeQuest[2]);
                             $state.go("score", {idCours: $scope.idCours});
                         }
                     };
